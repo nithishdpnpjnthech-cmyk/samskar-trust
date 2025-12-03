@@ -1,0 +1,118 @@
+Prompt:
+Design and build a beautiful, modern, and emotional charity website for “Samsakar Trust”, a non-profit organization started by a celebrity.
+
+The goal is to make it look professionally human-designed, not AI-generated. It should be responsive, clean, and full of warmth — using HTML, Tailwind CSS (or plain CSS), and a bit of JavaScript for animation and interactivity.
+
+🔧 Tech Stack
+
+HTML for structure
+
+Tailwind CSS for layout, responsiveness, and style
+
+JavaScript for animations, scroll effects, and donation interactivity
+
+No React, no backend — only front-end
+
+🎨 Design Style
+
+Soft color palette: warm orange, deep green, and ivory white
+
+Rounded buttons, large hero image, elegant typography
+
+Use emotional real-human-style design, not robotic
+
+Add subtle shadows, hover effects, and clean section spacing
+
+🏗️ Website Sections
+1️⃣ Hero Section
+
+Background image: smiling children or people receiving help
+
+Big heading: “Lend Your Heart To Change A Child’s Story”
+
+Small subtext: Join our mission to bring hope and help to those in need.
+
+Buttons:
+
+🧡 Donate Now (scrolls to donation section)
+
+🤝 Be a Volunteer
+
+2️⃣ About Section
+
+A few lines about Samsakar Trust, mission and values
+
+Small inspirational quote
+
+3️⃣ Causes Section
+
+Four cards in grid layout:
+
+Medical Aid
+
+Food Support
+
+Education Support
+
+Women Empowerment
+
+Each card has: icon, image, description, and “Learn More” button
+
+4️⃣ Donation Section (Add Scanner Here 🧾)
+
+Title: “Contribute Today To Make A Difference”
+
+Donation options with preset amounts: ₹500, ₹1000, ₹5000, Custom
+
+Include a QR Code Scanner box in the center:
+
+A small framed area showing a UPI / Payment QR code image (placeholder image like donate-qr.png)
+
+Text below: “Scan this QR to donate instantly via UPI / PayTM / Google Pay.”
+
+Also include a “Donate Now” button
+
+Smooth animation (QR fades in when section comes into view)
+
+5️⃣ Events Section
+
+List of upcoming charity events with date, place, and “Join Now” button
+
+6️⃣ Volunteer Section
+
+Form with Name, Email, and Message
+
+“Join as Volunteer” button
+
+7️⃣ Contact & Footer
+
+Address, phone, email
+
+Embedded Google Map placeholder
+
+Social media links (Instagram, YouTube, X, Facebook)
+
+Footer:
+© 2025 Samsakar Trust. All Rights Reserved.
+
+✨ Extra Features
+
+Scroll animations for each section
+
+Animated donation counter (numbers increasing)
+
+Hover zoom effects on cards
+
+Smooth scroll navigation
+
+Responsive on all devices
+
+🖋️ Fonts
+
+Headings: Poppins Bold
+
+Body: Open Sans Regular
+
+🎯 Goal
+
+The final result should look like a real designer’s work, emotional, modern, clean, and professional — suitable for a celebrity’s foundation.

@@ -1,0 +1,1014 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* prevent background scroll when modal/mobile menu is open */
+.no-scroll {
+    overflow: hidden !important;
+}
+
+.modern-nav-link {
+    position: relative;
+    padding: 0.625rem 1rem;
+    color: #2D6A4F;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 0.75rem;
+    display: inline-block;
+}
+
+.modern-nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0.375rem;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, #FF6B35, #FF8C61);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+}
+
+.modern-nav-link:hover {
+    color: #FF6B35;
+    background: rgba(255, 107, 53, 0.08);
+}
+
+.modern-nav-link:hover::before {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.donate-btn-icon {
+    display: inline-block;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+.hamburger {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger span {
+    display: block;
+    height: 2.5px;
+    width: 100%;
+    background: #2D6A4F;
+    border-radius: 3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobile-menu-btn.active .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#mobile-menu-btn.active .hamburger span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+#mobile-menu-btn.active .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.modern-mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none; /* default hidden; toggled via .hidden class or JS */
+    max-height: 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, #ffffff 0%, #FFF8F0 100%);
+    transition: max-height 0.36s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+    border-top: 1px solid transparent;
+    z-index: 45;
+    padding: 0.5rem 0.75rem;
+}
+
+.modern-mobile-menu:not(.hidden) {
+    display: block;
+    opacity: 1;
+}
+
+.modern-mobile-menu.active {
+    max-height: 600px;
+    border-top-color: rgba(255, 107, 53, 0.15);
+}
+
+.modern-mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    color: #2D6A4F;
+    font-weight: 600;
+    border-radius: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 0.25rem;
+}
+
+.modern-mobile-link:hover {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 140, 97, 0.05));
+    color: #FF6B35;
+    transform: translateX(8px);
+}
+
+.mobile-link-icon {
+    font-size: 1.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+}
+
+.modern-mobile-donate {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.125rem;
+    margin-top: 0.75rem;
+    background: linear-gradient(135deg, #FF6B35, #FF8C61);
+    color: white;
+    font-weight: 700;
+    border-radius: 1rem;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.35);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-mobile-donate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.45);
+}
+
+.hero-bg {
+    animation: ken-burns 25s ease-in-out infinite alternate;
+}
+
+/* Reduce heavy animations on small screens for smoother mobile loading */
+@media (max-width: 640px) {
+    .hero-bg {
+        animation: none;
+    }
+}
+
+@keyframes ken-burns {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.08) rotate(1deg);
+    }
+    100% {
+        transform: scale(1.15) rotate(-1deg);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Directional fade helpers for subtle scroll animations */
+/* removed enhancements to restore original */
+
+.donation-amount-btn {
+    position: relative;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    font-weight: 700;
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.donation-amount-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.donation-amount-btn:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.donation-amount-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 140, 97, 0.8);
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+}
+
+.donation-amount-btn.active {
+    background: linear-gradient(135deg, #FF6B35, #FF8C61);
+    border-color: #FF6B35;
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 107, 53, 0.4);
+}
+
+.qr-section {
+    animation: qrFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+@keyframes qrFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.qr-code-wrapper {
+    width: 280px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    border-radius: 1.5rem;
+    padding: 1.25rem;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.qr-code-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, #FF6B35, #FF8C61, #95D5B2);
+    border-radius: 1.5rem;
+    z-index: -1;
+    opacity: 0.15;
+}
+
+.qr-code-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 1rem;
+}
+
+#scroll-top {
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#scroll-top.visible {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+#scroll-top:hover {
+    transform: scale(1.1) translateY(-3px) !important;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 640px) {
+    .qr-code-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .donation-amount-btn {
+        padding: 1rem;
+    }
+    
+    .modern-mobile-menu.active {
+        max-height: 700px;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+    .qr-code-wrapper {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* Improve touch targets on tablets */
+    .modern-nav-link {
+        padding: 0.75rem 1rem;
+    }
+    
+    /* Better spacing for cause cards on tablets */
+    .fade-in-section {
+        transform: translateY(40px);
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Desktop optimizations */
+    .hero-bg {
+        animation: ken-burns 30s ease-in-out infinite alternate;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    /* Further reduce sizes for very small screens */
+    .donation-amount-btn {
+        padding: 0.875rem;
+    }
+    
+    .donation-amount-btn span {
+        font-size: 1rem;
+    }
+    
+    /* Ensure text doesn't overflow */
+    h1, h2, h3 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Reduce hero heading sizes slightly on very small phones */
+    #home h1 {
+        font-size: 1.6rem;
+        line-height: 1.1;
+    }
+}
+
+/* Make the Donate section more compact on small devices so it doesn't become too long */
+@media (max-width: 768px) {
+    /* Reduce vertical padding for the donate section */
+    #donate {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    /* Shrink the QR wrapper so it doesn't dominate the page */
+    #donate .qr-code-wrapper {
+        width: 140px;
+        height: 140px;
+        padding: 0.5rem;
+    }
+
+    /* Smaller headings and text in donate panels */
+    #donate h3 {
+        font-size: 1rem;
+    }
+    #donate p, #donate .text-white\/90, #donate .text-white\/95 {
+        font-size: 0.95rem;
+    }
+
+    /* Cap the height of the left/right donate panels and allow internal scrolling */
+    #qr-scanner-section,
+    #donate .grid > .fade-in-section:nth-child(2) {
+        max-height: calc(100vh - 10rem);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-right: 0.25rem; /* avoid content touching edge when scrollbar appears */
+    }
+
+    /* Make donation amount buttons more compact */
+    .donation-amount-btn {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    /* Reduce gaps inside the donate panel */
+    #donate .grid {
+        gap: 0.75rem;
+    }
+}
+
+/* Make the scanner card compact and centered on larger screens too */
+/* Make the QR/scanner fill the card area */
+#qr-scanner-section > div {
+    /* container for QR and bank details */
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.75rem; /* compact padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Make the qr wrapper fill the available card area */
+.qr-code-wrapper {
+    width: 100%;
+    height: 340px; /* desktop/tablet default */
+    padding: 0; /* remove internal padding so image can fill */
+    display: block;
+}
+
+.qr-code-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 0.75rem;
+}
+
+@media (max-width: 768px) {
+    .qr-code-wrapper {
+        height: 260px; /* smaller on mobile */
+    }
+}
+
+@media (min-width: 1200px) {
+    .qr-code-wrapper {
+        height: 420px; /* larger on wide screens */
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    #home {
+        min-height: auto;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero-bg {
+        background-size: cover;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Larger touch targets */
+    .modern-nav-link {
+        padding: 0.875rem 1.25rem;
+    }
+    
+    button, a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .donation-amount-btn:hover::before {
+        width: 0;
+        height: 0;
+    }
+}
+
+.delay-1000 {
+    animation-delay: 1s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Video Modal Styles */
+#video-modal, #gallery-lightbox {
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#video-modal iframe,
+#gallery-lightbox iframe {
+    border-radius: 1rem;
+}
+
+#gallery-lightbox img {
+    border-radius: 1rem;
+}
+
+/* Gallery and Testimonial Video Hover Effects */
+.testimonial-video:hover,
+.gallery-video-item:hover {
+    transform: translateY(-8px);
+}
+
+.gallery-image-item:hover {
+    transform: translateY(-8px);
+}
+
+/* Responsive Modal Adjustments */
+@media (max-width: 640px) {
+    #video-modal,
+    #gallery-lightbox {
+        padding: 1rem;
+    }
+    
+    #video-modal-close,
+    #gallery-lightbox-close {
+        top: -3rem;
+        right: 0.5rem;
+    }
+}
+
+/* Gallery Filter Buttons */
+.gallery-filter-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Standardized Button Styles */
+button, .btn, a[class*="button"] {
+    min-height: 44px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cause Modal Styles */
+#cause-modal {
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+#cause-modal-content {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#cause-modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+#cause-modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#cause-modal-content::-webkit-scrollbar-thumb {
+    background: #FF6B35;
+    border-radius: 4px;
+}
+
+#cause-modal-content::-webkit-scrollbar-thumb:hover {
+    background: #FF8C61;
+}
+
+/* Consistent Section Headings */
+section h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.2;
+}
+
+/* Standardized spacing for all sections */
+section {
+    scroll-margin-top: 80px;
+}
+
+/* Enhanced Responsive Styles */
+@media (max-width: 640px) {
+    nav {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    
+    .modern-nav-link {
+        font-size: 0.875rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    /* Ensure all images are responsive */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Gallery items stack properly on mobile */
+    #gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Modal adjustments for mobile */
+    #cause-modal > div,
+    #video-modal > div,
+    #gallery-lightbox > div {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    /* Social media buttons on mobile */
+    .flex.gap-3.sm\:gap-4 {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* Extra small devices (phones in portrait) */
+@media (max-width: 480px) {
+    /* Ensure text is readable */
+    body {
+        font-size: 14px;
+    }
+    
+    /* Smaller headings on very small screens */
+    h1, h2, h3 {
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
+    }
+    
+    /* Better spacing for touch targets */
+    button, a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+    #gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Better spacing on tablets */
+    section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
+/* Large screens optimization */
+@media (min-width: 1440px) {
+    .max-w-7xl {
+        max-width: 1280px;
+    }
+    
+    /* Better readability on large screens */
+    body {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    #gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Ensure videos are responsive */
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Better touch targets for mobile */
+button, a.btn, .gallery-filter-btn, .cause-learn {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Logo positioning fix */
+nav img {
+    flex-shrink: 0;
+}
+
+/* Menu items spacing */
+.modern-nav-link {
+    white-space: nowrap;
+}
+
+/* Responsive navigation menu */
+@media (max-width: 1024px) {
+    .hidden.lg\:flex {
+        display: none;
+    }
+}
+
+/* Ensure proper spacing on all screen sizes */
+@media (min-width: 1024px) {
+    nav .max-w-7xl {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+/* Mobile menu improvements */
+@media (max-width: 1024px) {
+    #mobile-menu {
+        max-height: calc(100vh - 4rem);
+        overflow-y: auto;
+    }
+}
+
+/* Utility when body scroll is locked (mobile menu/modals) */
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Better image loading */
+img {
+    object-fit: cover;
+}
+
+/* Ensure all containers are responsive */
+.container, .max-w-7xl {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+    .container, .max-w-7xl {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container, .max-w-7xl {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.gallery-filter-btn.active {
+    background: linear-gradient(135deg, #FF6B35, #FF8C61) !important;
+    color: white !important;
+    border-color: transparent !important;
+}
+
+/* ----------------------- */
+/* Compact Navbar Tweaks   */
+/* ----------------------- */
+/* These rules reduce navbar height, shrink the logo and tighten spacing so
+   more menu items fit on a single row without overlapping. They are
+   conservative and only apply on tablet/desktop breakpoints. */
+
+@media (min-width: 768px) {
+    /* Slightly smaller logo on medium screens */
+    #navbar img {
+        max-height: 36px;
+        max-width: 36px;
+    }
+
+    /* Reduce top/bottom gap of the main navbar row */
+    #navbar .max-w-7xl > .flex {
+        min-height: 44px;
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Reduce nav link padding and font-size so more items fit */
+    .modern-nav-link {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    /* Tighten horizontal spacing inside the navbar */
+    #navbar .max-w-7xl > .flex {
+        gap: 0.5rem;
+    }
+
+    /* Make the donate link a bit more compact so it doesn't push others */
+    #navbar a[href="#donate"] {
+        padding-left: 0.6rem !important;
+        padding-right: 0.6rem !important;
+        min-width: auto;
+    }
+
+    /* Slightly reduce the title block to avoid overflow */
+    #navbar h1 {
+        font-size: 1rem;
+    }
+}
+
+/* Very small adjustment for very wide navbars: keep links on one line */
+@media (min-width: 1200px) {
+    .modern-nav-link {
+        padding: 0.38rem 0.55rem;
+    }
+}
+
+
+/* Make Donate button consistent across languages and breakpoints */
+/* Keeps it as a compact single-line pill and reduces wrapping for long translations */
+#navbar a[href="#donate"],
+#navbar a[href="#donate"] .relative,
+.modern-mobile-donate {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 9999px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Ensure the inner text never wraps and scales down on small screens */
+.donate-btn-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    line-height: 1;
+    font-weight: 700;
+}
+
+/* Slightly reduce font-size for non-latin or long translations */
+@media (max-width: 1024px) {
+    .donate-btn-text {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #navbar a[href="#donate"], .modern-mobile-donate {
+        height: 40px;
+        padding: 0 10px;
+    }
+    .donate-btn-text {
+        font-size: 0.85rem;
+    }
+}
+
+/* Keep icon size reasonable and vertically centered */
+.donate-btn-icon, .modern-mobile-donate .mobile-link-icon {
+    font-size: 1.05rem;
+    line-height: 1;
+}
+
+/* Additional adjustments to ensure the Donate pill is fully visible in Kannada */
+@media (max-width: 1200px) {
+    /* give the navbar a bit more breathing room on the right so large pills aren't clipped */
+    #navbar .max-w-7xl {
+        padding-right: 1.25rem; /* slightly larger than default */
+    }
+
+    /* compact the donate button more on medium/narrow screens */
+    #navbar a[href="#donate"] {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        min-width: 0;
+    }
+
+    .donate-btn-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 900px) {
+    #navbar .max-w-7xl {
+        padding-right: 1.5rem; /* extra space for scrollbar and rounded pill */
+    }
+
+    /* slightly smaller text when space is constrained */
+    .donate-btn-text {
+        font-size: 0.85rem;
+    }
+
+    /* reduce horizontal gap so the menu fits */
+    #navbar .max-w-7xl > .flex {
+        gap: 0.4rem;
+    }
+}
+
+/* If a scrollbar overlaps the right edge, ensure the donate button has a small right margin */
+#navbar a[href="#donate"] {
+    margin-right: 6px;
+}
+
+
+
+/* Gallery Items */
+.gallery-item {
+    transition: opacity 0.3s ease, transform 0.3s ease, display 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.gallery-item img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Testimonial Video Cards */
+.testimonial-video-card {
+    position: relative;
+    cursor: pointer;
+}
+
+.testimonial-video-card:hover .play-button {
+    transform: scale(1.1);
+}
+
+/* Success Modal Animations */
+.animate-bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Smooth translation fade */
+.i18n-transition {
+    transition: opacity 260ms ease-in-out, transform 260ms ease-in-out;
+}
+
+/* Language dropdown small styles */
+#language-menu button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#language-menu button:focus { outline: none; }
+
+/* Responsive Gallery */
+@media (max-width: 640px) {
+    .gallery-filter-btn {
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .gallery-item {
+        margin-bottom: 1rem;
+    }
+}
