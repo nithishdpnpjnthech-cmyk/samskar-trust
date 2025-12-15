@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Samsakar Trust Charity Website",
   "scripts": {
-    "build": "tailwindcss -i ./input.css -o ./tailwind-output.css",
-    "watch": "tailwindcss -i ./input.css -o ./tailwind-output.css --watch"
+    "build": "npx tailwindcss -i ./input.css -o ./tailwind-output.css",
+    "watch": "npx tailwindcss -i ./input.css -o ./tailwind-output.css --watch"
   },
   "devDependencies": {
     "tailwindcss": "^3.3.0",
