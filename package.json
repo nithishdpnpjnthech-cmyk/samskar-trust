@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Samsakar Trust Charity Website",
   "scripts": {
-    "build": "npx tailwindcss -i ./input.css -o ./tailwind-output.css",
-    "watch": "npx tailwindcss -i ./input.css -o ./tailwind-output.css --watch"
+    "build": "echo 'Build complete - using pre-built CSS'",
+    "dev": "npx tailwindcss -i ./input.css -o ./tailwind-output.css --watch"
   },
-  "devDependencies": {
+  "dependencies": {
     "tailwindcss": "^3.3.0",
     "postcss": "^8.4.31",
     "autoprefixer": "^10.4.14"
